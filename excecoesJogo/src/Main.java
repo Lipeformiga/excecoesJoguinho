@@ -137,7 +137,6 @@ public class Main {
             if (personagens.verificarLados()){
                 return;
             }
-
         }
         System.out.println("Você ganhou!");
     }
