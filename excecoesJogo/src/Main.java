@@ -134,9 +134,15 @@ public class Main {
                     System.err.println("Escolha inválida!");
                     break;
             }
-            if (personagens.verificarLados()){
-                return;
+            try {
+                if (personagens.verificarLados()){
+                    return;
+                }
+            } catch (JogoException e){
+                System.out.println(e.getMessage());
+                System.exit(0);
             }
+
         }
         System.out.println("Você ganhou!");
     }
