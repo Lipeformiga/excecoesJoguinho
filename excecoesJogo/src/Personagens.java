@@ -89,6 +89,9 @@ public class Personagens {
         if (!ovelhaLado1 && !alfaceLado1 && loboLado1 && barcoLado1) {
             throw new AlfaceOvelhaException();
         }
+        if (ovelhaLado1 && loboLado1 && alfaceLado1 && !barcoLado1) {
+            throw new AlfaceOvelhaException();
+        }
         return false;
     }
 }
