@@ -29,80 +29,113 @@ public class Main {
 
             switch (escolha) {
                 case 1:
-                    try{
-                        personagens.moverParaLado2(ovelha);
-                        personagens.moverParaLado2(barco);
-                    } catch (RuntimeException e){
-                        System.out.println(e.getMessage());
+                    if (personagens.verificaBarcoLado1(barco)) {
+                        try{
+                            personagens.moverParaLado2(ovelha);
+                            personagens.moverParaLado2(barco);
+                        } catch (JogoException e){
+                            System.out.println(e.getMessage());
+                        }
+                    } else {
+                        System.err.println("Barco está do outro lado ( ação inválida )");
                     }
+
 
                     break;
                 case 2:
-                    try{
-                        personagens.moverParaLado2(lobo);
-                        personagens.moverParaLado2(barco);
-                    } catch (RuntimeException e){
-                        System.out.println(e.getMessage());
+                    if (personagens.verificaBarcoLado1(barco)) {
+                        try{
+                            personagens.moverParaLado2(lobo);
+                            personagens.moverParaLado2(barco);
+                        } catch (JogoException e){
+                            System.out.println(e.getMessage());
+                        }
+                    } else {
+                        System.err.println("Barco está do outro lado ( ação inválida )");
                     }
-
                     break;
+
                 case 3:
-                    try {
-                        personagens.moverParaLado2(alface);
-                        personagens.moverParaLado2(barco);
-                    } catch (RuntimeException e){
-                        System.out.println(e.getMessage());
+                    if (personagens.verificaBarcoLado1(barco)) {
+                        try {
+                            personagens.moverParaLado2(alface);
+                            personagens.moverParaLado2(barco);
+                        } catch (JogoException e){
+                            System.out.println(e.getMessage());
+                        }
+                    } else {
+                        System.err.println("Barco está do outro lado ( ação inválida )");
                     }
-
                     break;
+
                 case 4:
-                    try {
-                        personagens.moverParaLado1(ovelha);
-                        personagens.moverParaLado1(barco);
-                    } catch (RuntimeException e){
-                        System.out.println(e.getMessage());
+                    if (personagens.verificaBarcoLado2(barco)) {
+                        try {
+                            personagens.moverParaLado1(ovelha);
+                            personagens.moverParaLado1(barco);
+                        } catch (JogoException e){
+                            System.out.println(e.getMessage());
+                        }
+                    } else {
+                        System.err.println("Barco está do outro lado ( ação inválida )");
                     }
-
                     break;
+
                 case 5:
-                    try {
-                        personagens.moverParaLado1(lobo);
-                        personagens.moverParaLado1(barco);
-                    } catch (RuntimeException e){
-                        System.out.println(e.getMessage());
+                    if (personagens.verificaBarcoLado2(barco)) {
+                        try {
+                            personagens.moverParaLado1(lobo);
+                            personagens.moverParaLado1(barco);
+                        } catch (JogoException e){
+                            System.out.println(e.getMessage());
+                        }
+                    } else {
+                        System.err.println("Barco está do outro lado ( ação inválida )");
                     }
-
                     break;
+
                 case 6:
-                    try {
-                        personagens.moverParaLado1(alface);
-                        personagens.moverParaLado1(barco);
-                    } catch (RuntimeException e){
-                        System.out.println(e.getMessage());
+                    if (personagens.verificaBarcoLado2(barco)) {
+                        try {
+                            personagens.moverParaLado1(alface);
+                            personagens.moverParaLado1(barco);
+                        } catch (JogoException e){
+                            System.out.println(e.getMessage());
+                        }
+                    } else {
+                        System.err.println("Barco está do outro lado ( ação inválida )");
                     }
-
                     break;
+
                 case 7:
-                    try {
-                        personagens.moverParaLado1(barco);
-                    } catch (RuntimeException e){
-                        System.out.println(e.getMessage());
+                    if (personagens.verificaBarcoLado2(barco)) {
+                        try {
+                            personagens.moverParaLado1(barco);
+                        } catch (JogoException e){
+                            System.out.println(e.getMessage());
+                        }
+                    } else {
+                        System.err.println("Barco está do outro lado ( ação inválida )");
                     }
+                    break;
 
-                    break;
                 case 8:
-                    try {
-                        personagens.moverParaLado2(barco);
-                    } catch (RuntimeException e){
-                        System.out.println(e.getMessage());
+                    if (personagens.verificaBarcoLado1(barco)) {
+                        try {
+                            personagens.moverParaLado2(barco);
+                        } catch (JogoException e){
+                            System.out.println(e.getMessage());
+                        }
+                    } else {
+                        System.err.println("Barco está do outro lado ( ação inválida )");
                     }
                     break;
+
                 default:
-                    System.out.println("Escolha inválida!");
+                    System.err.println("Escolha inválida!");
                     break;
             }
             if (personagens.verificarLados()){
-                System.out.println("Perdeu playboy");
                 return;
             }
 

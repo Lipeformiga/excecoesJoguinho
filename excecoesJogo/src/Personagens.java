@@ -50,6 +50,19 @@ public class Personagens {
         }
     }
 
+    public Boolean verificaBarcoLado1(Barco barco) {
+        if(lado1.contains(barco)){
+            return true;
+        }
+        return false;
+    }
+    public Boolean verificaBarcoLado2(Barco barco) {
+        if(lado2.contains(barco)){
+            return true;
+        }
+        return false;
+    }
+
     public Boolean verificarLados() {
         boolean ovelhaLado1 = false;
         boolean loboLado1 = false;
@@ -75,17 +88,16 @@ public class Personagens {
         }
 
         if (ovelhaLado1 && loboLado1 && !alfaceLado1 && !barcoLado1) {
-            throw new RuntimeException("deu ruim");
+            throw new LoboOvelhaException();
         }
         if (ovelhaLado1 && alfaceLado1 && !loboLado1 && !barcoLado1) {
-            throw new RuntimeException("deu ruim");
+            throw new AlfaceOvelhaException();
         }
         if (ovelhaLado2 && loboLado2 && !alfaceLado2 && !barcoLado2) {
-            throw new RuntimeException("deu ruim");
+            throw new LoboOvelhaException();
         }
-        // Ovelha com alface sem o lobo no lado 2
         if (ovelhaLado2 && alfaceLado2 && !loboLado2 && !barcoLado2) {
-            throw new RuntimeException("deu ruim");
+            throw new AlfaceOvelhaException();
         }
 
         return false;
