@@ -136,7 +136,10 @@ public class Main {
                     System.err.println("Escolha inválida!");
                     break;
             }
-
+            System.out.println("Lado 1:");
+            System.out.println(personagens.getLado1());
+            System.out.println("Lado 2:");
+            System.out.println(personagens.getLado2());
             try {
                 personagens.verificarLados();
             } catch (JogoException e) {

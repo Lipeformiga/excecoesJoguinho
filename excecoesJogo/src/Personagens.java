@@ -9,6 +9,7 @@ public class Personagens {
         return lado1;
     }
 
+
     public ArrayList<Personagens> getLado2() {
         return lado2;
     }
