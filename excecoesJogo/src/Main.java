@@ -40,7 +40,7 @@ public class Main {
                         System.err.println("Barco está do outro lado ( ação inválida )");
                     }
                     break;
-                    
+
                 case 2:
                     if (personagens.verificaBarcoLado1(barco)) {
                         try{

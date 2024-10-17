@@ -68,10 +68,6 @@ public class Personagens {
         boolean loboLado1 = false;
         boolean alfaceLado1 = false;
         boolean barcoLado1 = false;
-        boolean ovelhaLado2 = false;
-        boolean loboLado2 = false;
-        boolean alfaceLado2 = false;
-        boolean barcoLado2 = false;
 
         for (Personagens p : lado1) {
             if (p instanceof Ovelha) ovelhaLado1 = true;
@@ -80,23 +76,16 @@ public class Personagens {
             if (p instanceof Barco) barcoLado1 = true;
         }
 
-        for (Personagens p : lado2) {
-            if (p instanceof Ovelha) ovelhaLado2 = true;
-            if (p instanceof Lobo) loboLado2 = true;
-            if (p instanceof Alface) alfaceLado2 = true;
-            if (p instanceof Barco) barcoLado2 = true;
-        }
-
         if (ovelhaLado1 && loboLado1 && !alfaceLado1 && !barcoLado1) {
             throw new LoboOvelhaException();
         }
         if (ovelhaLado1 && alfaceLado1 && !loboLado1 && !barcoLado1) {
             throw new AlfaceOvelhaException();
         }
-        if (ovelhaLado2 && loboLado2 && !alfaceLado2 && !barcoLado2) {
+        if (!ovelhaLado1 && !loboLado1 && alfaceLado1 && barcoLado1) {
             throw new LoboOvelhaException();
         }
-        if (ovelhaLado2 && alfaceLado2 && !loboLado2 && !barcoLado2) {
+        if (!ovelhaLado1 && !alfaceLado1 && loboLado1 && barcoLado1) {
             throw new AlfaceOvelhaException();
         }
 
