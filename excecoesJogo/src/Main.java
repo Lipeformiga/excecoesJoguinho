@@ -15,6 +15,8 @@ public class Main {
         personagens.adicionarLado1(alface);
         personagens.adicionarLado1(barco);
 
+        int jogar = 0;
+
         while (personagens.getLado1().size() != 0 && personagens.getLado2().size() != 4) {
             System.out.println("O que deseja fazer:" +
                     "\n1 - colocar ovelha no barco e passar para o lado2"+
@@ -134,15 +136,25 @@ public class Main {
                     System.err.println("Escolha inválida!");
                     break;
             }
-            try {
-                if (personagens.verificarLados()){
-                    return;
-                }
-            } catch (JogoException e){
-                System.out.println(e.getMessage());
-                System.exit(0);
-            }
 
+            try {
+                personagens.verificarLados();
+            } catch (JogoException e) {
+                System.err.println(e.getMessage());
+
+                System.out.println("1 - Sair | 2 - Tentar novamente");
+                jogar = sc.nextInt();
+                if (jogar == 1) {
+                    System.exit(0);
+                } else {
+                    personagens.getLado1().clear();
+                    personagens.getLado2().clear();
+                    personagens.adicionarLado1(ovelha);
+                    personagens.adicionarLado1(lobo);
+                    personagens.adicionarLado1(alface);
+                    personagens.adicionarLado1(barco);
+                }
+            }
         }
         System.out.println("Você ganhou!");
     }
