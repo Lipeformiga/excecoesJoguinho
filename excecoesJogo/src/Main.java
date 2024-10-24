@@ -72,7 +72,6 @@ public class Main {
 
     public static void executarOpcoes(int escolha) throws BarcoException {
         switch (escolha) {
-
             case 1,2,3:
                 if (!personagens.verificaBarcoLado1(barco)) {
                     throw new BarcoException();
@@ -114,5 +113,4 @@ public class Main {
                 break;
         }
     }
-
 }
