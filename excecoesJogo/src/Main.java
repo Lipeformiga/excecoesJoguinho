@@ -34,6 +34,8 @@ public class Main {
                 } else {
                     reiniciar();
                 }
+            } catch (BarcoException e) {
+                System.err.println(e.getMessage());
             }
         } while (personagens.getLado1().size() != 0 && personagens.getLado2().size() != 4);
 
@@ -68,78 +70,43 @@ public class Main {
                 "\n8 - passar o barco para o lado 2");;
     }
 
-    public static void executarOpcoes(int escolha){
+    public static void executarOpcoes(int escolha) throws BarcoException {
         switch (escolha) {
-            case 1:
-                if (personagens.verificaBarcoLado1(barco)) {
+
+            case 1,2,3:
+                if (!personagens.verificaBarcoLado1(barco)) {
+                    throw new BarcoException();
+                }
+                if (escolha == 1) {
                     personagens.moverParaLado2(ovelha);
-                    personagens.moverParaLado2(barco);
-
-                } else {
-                    System.err.println("Barco está do outro lado ( ação inválida )");
-                }
-                break;
-
-            case 2:
-                if (personagens.verificaBarcoLado1(barco)) {
-                        personagens.moverParaLado2(lobo);
-                        personagens.moverParaLado2(barco);
-                } else {
-                    System.err.println("Barco está do outro lado ( ação inválida )");
-                }
-                break;
-
-            case 3:
-                if (personagens.verificaBarcoLado1(barco)) {
+                } else if (escolha == 2) {
+                    personagens.moverParaLado2(lobo);
+                } else if (escolha == 3) {
                     personagens.moverParaLado2(alface);
-                    personagens.moverParaLado2(barco);
-                } else {
-                    System.err.println("Barco está do outro lado ( ação inválida )");
                 }
+                personagens.moverParaLado2(barco);
                 break;
 
-            case 4:
-                if (personagens.verificaBarcoLado2(barco)) {
+            case 4,5,6:
+                if (!personagens.verificaBarcoLado2(barco)) {
+                    throw new BarcoException();
+                }
+                if (escolha == 4) {
                     personagens.moverParaLado1(ovelha);
-                    personagens.moverParaLado1(barco);
-                } else {
-                    System.err.println("Barco está do outro lado ( ação inválida )");
-                }
-                break;
-
-            case 5:
-                if (personagens.verificaBarcoLado2(barco)) {
+                } else if (escolha == 5) {
                     personagens.moverParaLado1(lobo);
-                    personagens.moverParaLado1(barco);
-                } else {
-                    System.err.println("Barco está do outro lado ( ação inválida )");
-                }
-                break;
-
-            case 6:
-                if (personagens.verificaBarcoLado2(barco)) {
+                } else if (escolha == 6) {
                     personagens.moverParaLado1(alface);
-                    personagens.moverParaLado1(barco);
-
-                } else {
-                    System.err.println("Barco está do outro lado ( ação inválida )");
                 }
+                personagens.moverParaLado1(barco);
                 break;
 
             case 7:
-                if (personagens.verificaBarcoLado2(barco)) {
-                    personagens.moverParaLado1(barco);
-                } else {
-                    System.err.println("Barco está do outro lado ( ação inválida )");
-                }
+                personagens.moverParaLado1(barco);
                 break;
 
             case 8:
-                if (personagens.verificaBarcoLado1(barco)) {
-                        personagens.moverParaLado2(barco);
-                } else {
-                    System.err.println("Barco está do outro lado ( ação inválida )");
-                }
+                personagens.moverParaLado2(barco);
                 break;
 
             default:
@@ -147,4 +114,5 @@ public class Main {
                 break;
         }
     }
+
 }
