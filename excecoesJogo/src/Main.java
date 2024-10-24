@@ -71,7 +71,7 @@ public class Main {
                 "\n8 - passar o barco para o lado 2");;
     }
 
-    public static void executarOpcoes(int escolha) throws BarcoException {
+    public static void executarOpcoes(int escolha){
         switch (escolha) {
             case 1,2,3:
                 if (!personagens.verificaBarcoLado1(barco)) {
