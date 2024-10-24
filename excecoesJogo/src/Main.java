@@ -7,6 +7,7 @@ public class Main {
     private static  Lobo lobo = new Lobo(2, "lobo");
     private static Alface alface = new Alface(3, "alface");
     private static Barco barco = new Barco(4, "barco");
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
